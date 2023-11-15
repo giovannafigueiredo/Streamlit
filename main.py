@@ -1,3 +1,5 @@
+
+# Importing libraries
 from streamlit_extras.metric_cards import style_metric_cards
 import base64
 from turtle import goto
@@ -80,6 +82,8 @@ if filter == "Columns that I do not want to check":
     columns = [col for col in df.columns if col not in columns]
 
 df[columns]
+
+# Setting up the metric cards with css
 
 col1, col2, col3 = st.columns(3)
 
