@@ -1,10 +1,15 @@
-import pymysql
+import streamlit as st
+import pandas as pd
+import pymysql 
 import sqlalchemy
+
+from Streamlit.testdb import fetch_data
+
 # Database connection details
 host = '192.168.0.107'
 user = 'admin'
 password = 'admin'
-database = 'f1db'
+database = 'f1dbtest'
 
 try:
     # Establish a connection
@@ -20,9 +25,11 @@ try:
 
     # Execute a sample query
     cursor.execute("SELECT VERSION()")
-
+   
+    
     # Fetch the result
     db_version = cursor.fetchone()
+    
 
     print(f"Connected to MySQL Server. Server version: {db_version[0]}")
 
@@ -36,3 +43,4 @@ finally:
 
     if 'connection' in locals() and connection:
         connection.close()
+
